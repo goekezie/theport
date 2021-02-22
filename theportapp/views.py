@@ -11,16 +11,14 @@ def index(request):
     paginator = Paginator(projects, 5)
     page = request.GET.get('page')
     projects = paginator.get_page(page)
-    response = ""
     if request.method == 'POST':
         message_form = MessageForm(request.POST)
         if message_form.is_valid():      
             message_form.save()
-            response = HttpResponse("message sent ")
             return HttpResponseRedirect('/')
     else:
         message_form = MessageForm()    
-    return render(request, "theport/index.html", {"projects":projects, "message_form":message_form, 'successful_submit': True, "response":response})
+    return render(request, "theport/index.html", {"projects":projects, "message_form":message_form, 'successful_submit': True})
 
 
 
