@@ -1,9 +1,4 @@
 
-.card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-}
-
 .height {
     min-height: 20vh;
 }
@@ -40,22 +35,3 @@ html {
   }
 }
 
-#box{
-	width: 400px;
-	margin: 0 auto;
-	margin-top: 100px;
-	border: 2px solid rgb(24, 26, 31);
-	border-radius: 5px;
-	text-align: center;
-	padding: 20px;
-	/* background-color: rgb(49, 54, 63) !important; */
-}
-
-#profile_pic{
-	display: block;
-	border-radius: 50%;
-	margin: 10px auto;
-	width: 200px;
-	border: 2px solid rgb(24, 26, 31);
-
-}

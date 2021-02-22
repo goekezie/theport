@@ -1,218 +1,238 @@
 {% extends 'theport/base.html' %}
 {% block content %}
 {% load static %}
-<div class="imgbg  col-md-auto my-2">
-  <div class="about ">
-    <div class=" container-fluid justify-content-center my-5 ">
-      <div class="row  justify-content-center">
-        <div class="card bg-dark shadow-lg " style="width: 25rem; height: 30rem;" >
-          <div class="Profile-pic mx-auto image-wrapper justify-content-center">
-            <img src="{% static 'theport/sample.jpg' %}" class="card-img-top  rounded-circle my-3 shadow-lg" alt="Profile Picture" style="width: 14rem; height: 14rem;">
+<div class="content">
+  <div class="imgbg  col-md-auto my-2">
+    <div class="about ">
+      <div class=" container-fluid justify-content-center my-5 ">
+        <div class="row  justify-content-center">
+          <div class="card bg-dark shadow-lg " style="width: 25rem; height: 30rem;" >
+            <div class="Profile-pic mx-auto image-wrapper justify-content-center">
+              <img src="{% static 'theport/sample.jpg' %}" class="card-img-top  rounded-circle my-3 shadow-lg" alt="Profile Picture" style="width: 14rem; height: 14rem;">
+            </div>
+            <div class="card-body bg-dark ">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
           </div>
-          <div class="card-body bg-dark ">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-
-      </div>
-
-  </div>
-  </div>
-</div>
-
-<div class="row my-5">
-    <div class="col-md-7 ">
-      <h2 class=" text-uppercase font-weight-bolder text-monospace  text-center shadow-sm my-1">
-        certifications
-                </h2>
-      <div class="row  justify-content-center mx-auto container-fluid mt-3">
-
-        <div class="devOps_engineer_expert mx-1 ">
-            <div data-iframe-width="120" data-iframe-height="230" data-share-badge-id="715260e0-7d2a-42c1-9337-9970c8338854" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
-        </div>
-        <div class="az-104 mx-1 ">
-          <div data-iframe-width="120" data-iframe-height="230" data-share-badge-id="f4ffdcd6-d730-41c1-be88-b697b3362efc" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
-      </div>
-        <div class="aws mx-1">
-            <div data-iframe-width="120" data-iframe-height="245" data-share-badge-id="77b9b49b-b737-46e8-a778-a1595ac08596" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
-        </div>
-        <div class="ccna mx-1">
-            <div data-iframe-width="120" data-iframe-height="215" data-share-badge-id="3ac2243b-0905-4fd6-99fc-749fb4c78399" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
-        </div>
-    
-        </div>
-        <div class="col">
-          <h2 id="Projects" class=" text-uppercase font-weight-bolder text-monospace  text-center shadow-sm my-2">
-            projects
-                    </h2>
-          {% for project in projects %}
-          <div class="projects col-md-9 container-fluid justify-content-center">              
-              <div class="card my-3 bg-dark " style="max-width: 540px;">
-                  <div class="row no-gutters justify-content-center">
-                    <!-- <div class="col-md-4">
-                      <img src="{{ project.image.url }}" class="card-img my-2 mx-1" alt="...">
-                    </div> -->
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title text-capitalize font-weight-bold"> {{ project.title}} </h5>
-                        <p class="card-text">{{ project.content|truncatechars:400|safe }}</p>
-                        <p>
-                         
-                          <div class="row container-fluid my-4">
-                            <button type="button" class="btn btn-secondary btn-sm shadow-lg my-2 mx-1"> 
-                              <a href="{{ project.cloud_architecture }}" target="_blank"><i class="fab fa-github"> </i> cloud architecture <i class="fas fa-external-link-alt"></i></a>
-    
-                            </button>
-                            <button type="button" class="btn btn-secondary btn-sm text-white shadow-lg my-2 mx-1"> 
-                              <a href=" {{project.sre}} " target="_blank"> <i class="fab fa-github"></i> SRE <i class="fas fa-external-link-alt"></i></a>                         
-                            </button>
-                            <button type="button" class="btn btn-secondary shadow-lg my-2 mx-1"> 
-                              <a href="{{ project.pipeline }}" target="_blank"><i class="fab fa-github"></i> pipeline <i class="fas fa-external-link-alt"></i></a>                         
-                            </button>
-                            <button type="button" class="btn btn-secondary shadow-lg btn-sm my-2 mx-1"> 
-                              <a href="{{ project.cost_analysis }}" target="_blank"><i class="fas fa-file-excel"></i > cost analysis  <i class="fas fa-external-link-alt"></i></a>   
-                            </button> 
-                          </div>
   
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>        
-  
-              {% endfor %}
-          
-              <div class="Paginator my-3">
-                  {% if projects.paginator.num_pages > 1 %}
-                  <nav aria-label="...">
-                      <ul class="pagination justify-content-center pb-2">
-                          {% if projects.has_previous %}
-                        <li class="page-item disabled">
-                          
-                          <a href="?page={{ projects.previous_page_number }}">
-                              <span class="page-link text-white bg-primary">Previous <i class="fas fa-chevron-circle-left"></i></span>
-                          </a>
-                        </li>
-                        {% endif %}
-                        <li class="page-item"><a class="page-link bg-dark text-white" href="#">{{ projects.number }}</a></li>
-                        <li class="page-item ">
-                          <span class="page-link bg-dark text-white">
-                            of
-                            <!-- <span class="sr-only">(current)</span> -->
-                          </span>
-                        </li>
-                        <li class="page-item"><a class="page-link bg-dark text-white" href="#">{{ projects.paginator.num_pages }}</a></li>
-                        {% if projects.has_next %}
-                        <li class="page-item">
-                          <a class="page-link bg-primary text-white" href="?page={{ projects.next_page_number }}"><i class="fas fa-chevron-circle-right"></i> Next</a>
-                        </li>
-                        {% endif %}
-                      </ul>
-                    </nav>
-                    {% endif %}
-              </div>
-          </div>
-        
-          </div>
         </div>
-        <div class="col-md-5 justify-content-center container-fluid">
-          <div class="  ">
-              {% load crispy_forms_tags %}
-              <div class="card-body col-md-auto mb-5">
-                  <div class="col align-content-center">
-                      <h3>Send a message</h3>
-                      <h6 class="text-success">
-                        {{ response }}
-                        <!-- Your email address will not be published.
-                      </h6> -->
-                      <h6 class="text-white">
-                       Required fields are marked *
-                      </h6>
-                      <form method="post" style="margin-top: 1.3em;" class=" text-capitalize">
-                        {{ message_form | crispy }}
-                        {% csrf_token %}                                                
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Message</button>
-                      </form>
-                  </div>
-              
-                </div>
-                <div class="submission">
-                  {% if successful_submit %}
-                  <script type="">
-                      $(document).ready(function(){
-                          $("#myModal").modal('show');
-                      });
-                      setTimeout(function() {
-     $.get("{% url 'index' %}") // Do something after 5 seconds
-                  }, 5000);
-                  </script>
-              {% endif %}
-
-              <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Small modal</button> -->
-
-<div id="myModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      message sent 
-      <i class="far fa-check-circle"></i>
-      Thank You.
+  
+    </div>
     </div>
   </div>
-</div>
-                </div>
-      
-              <div class="Contact my-5">
-                  <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModalCenter">
-      Contact me <span class="badge badge-light"><i class="fab fa-angellist"></i></span>
-      </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-          <h5 class="modal-title text-secondary" id="exampleModalLongTitle">Socials</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
+  
+
+  <div class="row my-5">
+      <div class="col-md-7 col-lg-7 ">
+        <div class="">
+          <h2 class=" text-uppercase font-weight-bolder text-monospace  text-center shadow-sm my-1">
+            certifications
+                    </h2>
+          <div class="row  justify-content-center mx-auto container-fluid mt-3">
+    
+            <div class="devOps_engineer_expert mx-1 ">
+                <div data-iframe-width="120" data-iframe-height="230" data-share-badge-id="715260e0-7d2a-42c1-9337-9970c8338854" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
+            </div>
+            <div class="az-104 mx-1 ">
+              <div data-iframe-width="120" data-iframe-height="230" data-share-badge-id="f4ffdcd6-d730-41c1-be88-b697b3362efc" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
           </div>
-          <div class="modal-body list-group-item-dark">
-              <button type="button" class="btn btn-primary">
-                  <a href="
-                  https://mail.google.com/mail/?view=cm&fs=1&to=goekezie@gmail.com&su=Greetings&body=" target="_blank" class="gmail text-white">
-                  <i class="fas fa-envelope"></i><span class="badge badge-light"></span>
-              </a>
-                  
-                </button>
-      
-                <button type="button" class="btn btn-primary">
-                  <a href="
-                  https://wa.me/07059905888" target="_blank" class="whatsapp text-white">
-                  <i class="fab fa-whatsapp"></i><span class="badge badge-light"></span>
-              </a>
-                  
-                </button>
-      
-                <button type="button" class="btn btn-primary">
-                  <a href="https://twitter.com/messages/compose?recipient_id=732594102" target="_blank"
-                  class="twitter-dm-button text-white" data-screen-name="@goekezie">
-                 message@goekezie
-                 <i class="fab fa-twitter"></i><span class="badge badge-light"></span>
-              </a>
-      
-                </button>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-      </div>
-      </div>
-      </div>
-      </div>
-          </div>
-      </div>
-</div>
+            <div class="aws mx-1">
+                <div data-iframe-width="120" data-iframe-height="245" data-share-badge-id="77b9b49b-b737-46e8-a778-a1595ac08596" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
+            </div>
+            <div class="ccna mx-1">
+                <div data-iframe-width="120" data-iframe-height="215" data-share-badge-id="3ac2243b-0905-4fd6-99fc-749fb4c78399" data-share-badge-host="https://www.youracclaim.com"></div><script type="text/javascript" async src="//cdn.youracclaim.com/assets/utilities/embed.js"></script>
+            </div>
+        
+            </div>
 
 
+            <div class="project">
+              <h2 id="Projects" class=" text-uppercase font-weight-bolder text-monospace  text-center shadow-sm my-2">
+                projects
+                        </h2>
+              
+              <div class="projects justify-content-center ">
+                {% for project in projects %}
+                <div class="projects col-md-10 container-fluid justify-content-center">
+                  <div class="card my-3 bg-dark " >
+                    <div class="row no-gutters justify-content-center">
+                      <div class="">
+                        <div class="card-body">
+                          <h5 class="card-title text-capitalize font-weight-bold"> {{ project.title}} </h5>
+                          <p class="card-text">{{ project.content|truncatechars:400|safe }}</p>
+                          <p>
+                           
+                            <div class="row my-4">
+                              {% if project.cloud_architecture %}
+                              <button type="button" class="btn btn-secondary btn-sm shadow-lg my-2 mx-1" > 
+                                <a href="{{ project.cloud_architecture }}" target="_blank" ><i class="fab fa-github"> </i> cloud architecture <i class="fas fa-external-link-alt"></i></a>
+      
+                              </button>
+                              {% endif %}
+
+                              {% if project.sre %}
+                              <button type="button" class="btn btn-secondary btn-sm text-white shadow-lg my-2 mx-1 "> 
+                                <a href=" {{project.sre}} " target="_blank"> <i class="fab fa-github"></i> SRE <i class="fas fa-external-link-alt"></i></a>                         
+                              </button>
+                              {% endif %}
+
+                              {% if project.pipeline %}
+                              <button type="button" class="btn btn-secondary shadow-lg my-2 mx-1"> 
+                                <a href="{{ project.pipeline }}" target="_blank"><i class="fab fa-github"></i> pipeline <i class="fas fa-external-link-alt"></i></a>                         
+                              </button>
+                              {% endif %}
+
+                              {% if project.cost_analysis %}
+                              <button type="button" class="btn btn-secondary shadow-lg btn-sm my-2 mx-1"> 
+                                <a href="{{ project.cost_analysis }}" target="_blank"><i class="fas fa-file-excel"></i > cost analysis  <i class="fas fa-external-link-alt"></i></a>   
+                              </button>
+                              {% endif %} 
+                            </div>
+    
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>        
+                
+                </div>             
+                  {% endfor %}
+                  <div class="Paginator my-3">
+                    {% if projects.paginator.num_pages > 1 %}
+                    <nav aria-label="...">
+                        <ul class="pagination justify-content-center pb-2">
+                            {% if projects.has_previous %}
+                          <li class="page-item disabled">
+                            
+                            <a href="?page={{ projects.previous_page_number }}">
+                                <span class="page-link text-white bg-primary">Previous <i class="fas fa-chevron-circle-left"></i></span>
+                            </a>
+                          </li>
+                          {% endif %}
+                          <li class="page-item"><a class="page-link bg-dark text-white" href="#">{{ projects.number }}</a></li>
+                          <li class="page-item ">
+                            <span class="page-link bg-dark text-white">
+                              of
+                              <!-- <span class="sr-only">(current)</span> -->
+                            </span>
+                          </li>
+                          <li class="page-item"><a class="page-link bg-dark text-white" href="#">{{ projects.paginator.num_pages }}</a></li>
+                          {% if projects.has_next %}
+                          <li class="page-item">
+                            <a class="page-link bg-primary text-white" href="?page={{ projects.next_page_number }}"><i class="fas fa-chevron-circle-right"></i> Next</a>
+                          </li>
+                          {% endif %}
+                        </ul>
+                      </nav>
+                      {% endif %}
+                </div>            
+    
+              </div>
+          
+              </div>
+        </div>
+  
+      </div>
+  
+  
+      <div class="col-md-5 col-lg-5">
+            <div class="justify-content-center container-fluid  ">
+              {% load crispy_forms_tags %}
+                <div class="card-body col-md-10 mb-5">
+                    <div class="col align-content-center">
+                        <h3>Send a message</h3>
+                        <h6 class="text-success">
+                          {{ response }}
+                          <!-- Your email address will not be published.
+                        </h6> -->
+                        <h6 class="text-white">
+                         Required fields are marked *
+                        </h6>
+                        <form method="post" style="margin-top: 1.3em;" class=" text-capitalize">
+                          {{ message_form | crispy }}
+                          {% csrf_token %}                                                
+                          <button type="submit" class="btn btn-primary btn-block btn-lg">Message</button>
+                        </form>
+                    </div>
+                
+                  </div>
+        
+                <div class="Contact my-5">
+                    <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+        Contact me <span class="badge badge-light"><i class="fab fa-angellist"></i></span>
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title text-secondary" id="exampleModalLongTitle">Socials</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body list-group-item-dark">
+                <button type="button" class="btn btn-primary">
+                    <a href="
+                    https://mail.google.com/mail/?view=cm&fs=1&to=goekezie@gmail.com&su=Greetings&body=" target="_blank" class="gmail text-white">
+                    <i class="fas fa-envelope"></i><span class="badge badge-light"></span>
+                </a>
+                    
+                  </button>
+        
+                  <button type="button" class="btn btn-primary">
+                    <a href="
+                    https://wa.me/07059905888" target="_blank" class="whatsapp text-white">
+                    <i class="fab fa-whatsapp"></i><span class="badge badge-light"></span>
+                </a>
+                    
+                  </button>
+        
+                  <button type="button" class="btn btn-primary">
+                    <a href="https://twitter.com/messages/compose?recipient_id=732594102" target="_blank"
+                    class="twitter-dm-button text-white" data-screen-name="@goekezie">
+                   message@goekezie
+                   <i class="fab fa-twitter"></i><span class="badge badge-light"></span>
+                </a>
+        
+                  </button>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+            </div>
+        </div>
+  </div>
+  
+</div>
 {% endblock %}
+                  <!-- <div class="submission">
+                    {% if successful_submit %}
+                    <script type="">
+                        $(document).ready(function(){
+                            $("#myModal").modal('show');
+                        });
+                        setTimeout(function() {
+       $.get("{% url 'index' %}") // Do something after 5 seconds
+                    }, 5000);
+                    </script>
+                {% endif %}
+  
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Small modal</button>
+  
+  <div id="myModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        message sent 
+        <i class="far fa-check-circle"></i>
+        Thank You.
+      </div>
+    </div>
+  </div>
+                  </div> -->
