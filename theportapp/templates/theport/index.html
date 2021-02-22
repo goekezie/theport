@@ -48,13 +48,13 @@
           {% for project in projects %}
           <div class="projects col-md-9 container-fluid justify-content-center">              
               <div class="card my-3 bg-dark " style="max-width: 540px;">
-                  <div class="row no-gutters">
+                  <div class="row no-gutters justify-content-center">
                     <!-- <div class="col-md-4">
                       <img src="{{ project.image.url }}" class="card-img my-2 mx-1" alt="...">
                     </div> -->
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title text-capitalize"> {{ project.title}} </h5>
+                        <h5 class="card-title text-capitalize font-weight-bold"> {{ project.title}} </h5>
                         <p class="card-text">{{ project.content|truncatechars:400|safe }}</p>
                         <p>
                          
