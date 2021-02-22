@@ -15,7 +15,7 @@ class Project(models.Model):
     pipeline = models.URLField(max_length=200, blank=True, verbose_name="CI/CD Pipeline")
     cost_analysis = models.URLField(max_length=200, blank=True, verbose_name="Cost Analysis")
     created_on = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to="theport/images/")
+    
 
     class Meta:
         ordering = ['-created_on']
