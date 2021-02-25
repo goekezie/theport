@@ -24,6 +24,10 @@ urlpatterns = [
     path('sirglock/', admin.site.urls),
     path('', views.index, name="index"),
 
+    path('certifications/', views.certifications, name="certifications"),
+    path('search/', views.search, name="search"),
+
+  
   
 
     #dev
@@ -37,7 +41,7 @@ urlpatterns = [
     #django-summernote
     path('summernote/', include('django_summernote.urls')),
 
-   
+    # path('<slug:slug>/', views.resultdetail, name="resultdetail"),
 
 
 ]

@@ -4,8 +4,7 @@ from .models import Post, Comment
 from mov.models import MoviePost
 from tec.models import TechPost
 from django.core.paginator import Paginator
-from django.db.models import Q
-from itertools import chain
+
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import CommentForm
@@ -72,53 +71,6 @@ def details(request, slug):
     #details comment
     
 
-
-#certifications
-def certifications(request):
-    return render(request, "der/certifications.html",)
-    
-
-
-
-def search(request):
-    query = request.GET.get('q')
-    quote = ''
-    if query:
-        postresults = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains=query)).distinct()
-        moviepostresults = MoviePost.objects.filter(Q(title__icontains=query) | Q(content__icontains=query)).distinct()
-        techpostresults = TechPost.objects.filter(Q(title__icontains=query) | Q(content__icontains=query)).distinct()
-        result_list = list(chain(
-                    postresults,
-                    moviepostresults,
-                    techpostresults
-                     ))
-        if result_list != []:
-            quote =  'Search result for ' + query
-        else: 
-            quote = 'No result found for ' + query
-         
-
-    else:
-        postresults = Post.objects.filter(status=0)
-        moviepostresults = MoviePost.objects.filter(status=0)
-        techpostresults = TechPost.objects.filter(status=0)
-        result_list = list(chain(
-                    postresults,
-                    moviepostresults,
-                    techpostresults
-                     ))  
-        
-    paginator = Paginator(result_list, 8)
-    page = request.GET.get('page')
-    results = paginator.get_page(page)
-    context = {'results': results, 'query':query, 'quote':quote}
-
-    return render(request, 'der/search.html', context)
-
-#resultdetail page
-def resultdetail(request, slug):
-    result = get_object_or_404(MoviePost, TechPost, Post, slug=slug)
-    return render(request, "der/resultdetail.html", {"result":result})
 
 
 

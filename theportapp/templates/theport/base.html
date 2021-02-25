@@ -15,31 +15,52 @@
         <!-- Local csss for cards with circular images -->
     <link rel="stylesheet" type="text/css" href="{% static 'polls/main.css' %}">
 
-    <link rel="icon" type="image/png"  href="{% static 'theport/RU.png' %}">
-    <title>Gibson | DevOps Engineer</title>
+    <link rel="icon" type="image/png"  href="{% static 'dev/RU.png' %}">
+    <title>Gibson | Blog</title>
   </head>
-  <body class="bg-dark" >
+  <body class="bg-secondary" >
     <header class="header position-sticky">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-            <a class="navbar-brand text-white text-uppercase font-weight-bolder text-monospace mx-auto" href="{% url 'index' %}"> Ekezie Gibson .O.</a>
-           
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav m-auto  mt-2 mt-lg-0 nav-pills ">
-                <li class="nav-item active mx-2">
-                  <a class="nav-link text-white font-weight-bold" href="#Projects">Projects<span class="sr-only">(current)</span>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand text-white" href="{% url 'index' %}"></a>
+        <img class="navbar-brand"  rel="icon" type="image/png"  src="{% static 'theport/RU.png' %}" width="70px" height="50px">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'der:der' %}">Dev</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'mov:mov' %}" >Movies</a>
+              <!-- tabindex="-1" aria-disabled="true" -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'tec:tec' %}" >
+              <!-- <link rel="icon" type="image/png"  href="{% static 'devend/twitter.png' %}"> -->
+              Tech 
+              </a>
+            </li>
+            <li class="nav-item dropdown bg-dark">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others
                 </a>
-                </li>
-                <li class="nav-item mx-2">
-                  <a class="nav-link text-white font-weight-bold" href="{% url 'der:der' %}">Blog</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
+              <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'certifications' %}">I.T Certifications</a> 
+              </div>
+          </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" value="{{ query }}" required>
+          
+            <button class="btn shadow-lg text-white my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
     </header>
     <main role="main ">
       <div class="text-light container-fluid justify-content-center text-justify ">
@@ -49,9 +70,9 @@
 
       <!-- Footer -->
 
-  <footer class="container-fluid page-footer font-small bg-dark border shadow-lg border-dark position-absolute mt-3 ">
+  <footer class="container-fluid page-footer font-small bg-dark  fixed-bottom mt-3 ">
     <!-- Copyright -->
-    <div class="footer-copyright justify-content-center py-3 row text-white">
+    <div class="footer-copyright text-center justify-content-center py-3 row text-white">
       <div class="linked in mx-2">
         <a href="https://www.linkedin.com/in/goekezie/" target="_blank">
           <i class="fab fa-linkedin-in"></i>
@@ -64,9 +85,9 @@
        </a>
       
      </div>
-     <h6 class="mx-2 font-weight-light text-center ">
-      © 2021 Copyright:ekezie.dev 
-    </h6>
+     <h6 class="mx-2 font-weight-light text-center font-italic">
+      © 2021 Copyright: ekezie.dev 
+    </h6> 
     </div>
     <!-- Copyright -->
   

@@ -8,8 +8,5 @@ urlpatterns = [
     path('<slug:slug>/', views.details, name="details"),
 
 
-    path('certifications/', views.certifications, name="certifications"),
-    path('search/', views.search, name="search"),
-
-    path('<slug:slug>/', views.resultdetail, name="resultdetail"),    
+    
 ]
