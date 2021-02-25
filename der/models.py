@@ -1,8 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-from movie.models import MoviePost
-from tech.models import TechPost
+
 
 # Create your models here.
 class Post(models.Model):
