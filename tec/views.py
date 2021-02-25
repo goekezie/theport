@@ -10,7 +10,7 @@ from .forms import CommentForm
 
 
 # Create your views here.
-def tech(request):
+def tec(request):
     techposts = TechPost.objects.all()
     etechposts = TechPost.objects.order_by('-created_on')[:1]   #First post header
     rtechposts = TechPost.objects.order_by('-created_on')[:3]  #recent posts
@@ -27,7 +27,7 @@ def tech(request):
     mpaginator = Paginator(movieposts, 3)
     page = request.GET.get('page')
     movieposts = mpaginator.get_page(page)
-    return render(request, "tech/tech.html", {"techposts":techposts, "posts":posts, "movieposts":movieposts, "etechposts":etechposts, "rtechposts":rtechposts})
+    return render(request, "tec/tec.html", {"techposts":techposts, "posts":posts, "movieposts":movieposts, "etechposts":etechposts, "rtechposts":rtechposts})
 
 
 
@@ -67,4 +67,4 @@ def details(request, slug):
     else:
         comment_form = CommentForm()
 
-    return render(request, "tech/details.html", {"techpost":techpost, "comments":comments, "new_comment":new_comment, "comment_form":comment_form, "totalcomments":totalcomments})
+    return render(request, "tec/details.html", {"techpost":techpost, "comments":comments, "new_comment":new_comment, "comment_form":comment_form, "totalcomments":totalcomments})

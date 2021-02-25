@@ -22,7 +22,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('details',args={self.slug})
+        return reverse('der:details', args={self.slug})
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')

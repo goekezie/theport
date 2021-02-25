@@ -1,8 +1,8 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
-from movie.models import MoviePost
-from tech.models import TechPost
+from mov.models import MoviePost
+from tec.models import TechPost
 from django.core.paginator import Paginator
 from django.db.models import Q
 from itertools import chain
@@ -10,8 +10,8 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import CommentForm
 
-# Homepage.
-def index(request):
+# dev.
+def der(request):
     posts = Post.objects.all()
     eposts = Post.objects.order_by('-created_on')[:1]   #First post header
     rposts = Post.objects.order_by('-created_on')[:3]  #recent posts
@@ -29,7 +29,7 @@ def index(request):
     page = request.GET.get('page')
     techposts = tpaginator.get_page(page)
 
-    return render(request, "dev/index.html", {"posts":posts, "movieposts":movieposts, "techposts":techposts, "eposts":eposts, "rposts":rposts})
+    return render(request, "der/der.html", {"posts":posts, "movieposts":movieposts, "techposts":techposts, "eposts":eposts, "rposts":rposts})
 
 
 
@@ -68,20 +68,16 @@ def details(request, slug):
             return HttpResponseRedirect(post.get_absolute_url())
     else:
         comment_form = CommentForm()
-    return render(request, "dev/details.html", {"post":post, "comments":comments, "new_comment":new_comment, "comment_form":comment_form, "totalcomments":totalcomments})
+    return render(request, "der/details.html", {"post":post, "comments":comments, "new_comment":new_comment, "comment_form":comment_form, "totalcomments":totalcomments})
     #details comment
     
 
 
 #certifications
 def certifications(request):
-    return render(request, "dev/certifications.html",)
+    return render(request, "der/certifications.html",)
+    
 
-
-
-#About
-def about(request):
-    return render(request, "dev/about.html",)
 
 
 def search(request):
@@ -117,9 +113,13 @@ def search(request):
     results = paginator.get_page(page)
     context = {'results': results, 'query':query, 'quote':quote}
 
-    return render(request, 'dev/search.html', context)
+    return render(request, 'der/search.html', context)
 
 #resultdetail page
 def resultdetail(request, slug):
     result = get_object_or_404(MoviePost, TechPost, Post, slug=slug)
-    return render(request, "dev/resultdetail.html", {"result":result})
+    return render(request, "der/resultdetail.html", {"result":result})
+
+
+
+

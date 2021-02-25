@@ -2,9 +2,9 @@
 from django.urls import path
 from . import views
 
-app_name = "movie"
+app_name = "mov"
 urlpatterns = [
-    path('', views.movie, name="movie"),
+    path('', views.mov, name="mov"),
     path('<slug:slug>/', views.details, name="details"),
     
 ]

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import MoviePost, Comment
-from dev.models import Post
-from tech.models import TechPost
+from der.models import Post
+from tec.models import TechPost
 from django.core.paginator import Paginator
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
@@ -10,7 +10,7 @@ from .forms import CommentForm
 
 
 # Create your views here.
-def movie(request):
+def mov(request):
     movieposts = MoviePost.objects.all()
     emovieposts = MoviePost.objects.order_by('-created_on')[:1]   #First post header
     rmovieposts = MoviePost.objects.order_by('-created_on')[:3]  #recent posts
@@ -28,7 +28,7 @@ def movie(request):
     page = request.GET.get('page')
     techposts = tpaginator.get_page(page)
 
-    return render(request, "movie/movie.html", {"movieposts":movieposts, "posts":posts, "techposts":techposts, "emovieposts":emovieposts, "rmovieposts":rmovieposts})
+    return render(request, "mov/mov.html", {"movieposts":movieposts, "posts":posts, "techposts":techposts, "emovieposts":emovieposts, "rmovieposts":rmovieposts})
 
 
 
@@ -69,5 +69,5 @@ def details(request, slug):
     else:
         comment_form = CommentForm()
 
-    return render(request, "movie/details.html", {"moviepost":moviepost, "comments":comments, "new_comment":new_comment, "comment_form":comment_form, "totalcomments":totalcomments})
+    return render(request, "mov/details.html", {"moviepost":moviepost, "comments":comments, "new_comment":new_comment, "comment_form":comment_form, "totalcomments":totalcomments})
 

@@ -5,6 +5,8 @@ from .forms import MessageForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse 
 
+
+
 # Create your views here.
 def index(request):
     projects = Project.objects.all()
@@ -21,5 +23,3 @@ def index(request):
     return render(request, "theport/index.html", {"projects":projects, "message_form":message_form, 'successful_submit': True})
 
 
-
-    

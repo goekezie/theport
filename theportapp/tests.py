@@ -1,10 +1,10 @@
 from django.test import TestCase
 from .models import Project
 from .models import Messenger
-from .models import Post
-from .models import Comment
-from movie.models import MoviePost
-from tech.models import TechPost
+from der.models import Post
+from der.models import Comment
+from mov.models import MoviePost
+from tec.models import TechPost
 
 class ProjectTest(TestCase):
     def setUp(self):

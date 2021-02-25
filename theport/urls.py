@@ -21,34 +21,25 @@ from django.conf import settings
 
 app_name = "index"
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('sirglock/', admin.site.urls),
     path('', views.index, name="index"),
 
-    path('certifications/', views.certifications, name="certifications"),
-    path('about/', views.about, name="about"),
-    path('search/', views.search, name="search"),
-    
-    
-    
-    #path('', include(('post.urls', 'post'), namespace='post')),
+  
 
-
-
+    #dev
+    path('blog/', include('der.urls')),
     #movies
-    path('movie/', include('movie.urls')),
+    path('movie/', include('mov.urls')),
 
     #techhardware
-    path('tech/', include('tech.urls')),
+    path('tech/', include('tec.urls')),
 
     #django-summernote
     path('summernote/', include('django_summernote.urls')),
 
-    path('<slug:slug>/', views.details, name="details"),
+   
 
-    path('<slug:slug>/', views.resultdetail, name="resultdetail"),
 
-    #django-summernote
-    path('summernote/', include('django_summernote.urls')),
 ]
 
 #Further edit of debug feature for dev and hosting
