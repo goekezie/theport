@@ -1,0 +1,224 @@
+
+{% extends 'dev/base.html' %}
+{% block content %}
+
+<div class="content ">
+    <div class="shadow-lg ">
+        <header id="header" class="bg-dark ">
+            <div class="">
+                <div class="row height align-items-center" style=" height: 30rem;">
+                    <!-- {% load static %} -->
+                    {% for emoviepost in emovieposts %}
+
+                    <div class="col-md-7 container-fluid ">
+
+                        <div class="card bg-dark text-white shadow-lg">
+                            <div class="card-header border-0 bg-dark">
+                                <h1 class="text-danger text-uppercase font-weight-bold font-italic">
+                                    <a class="text-white" href="{% url 'movie:details' emoviepost.slug %}">
+                                        <h2 class="HomepageTittle text-capitalize font-weight-bold text-justify text-md-center">
+                                            {{ emoviepost.title}}
+                                        </h2>
+                                    </a>
+                                    
+                                </h1>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text lead">
+                                    {{ emoviepost.content|truncatechars:400|safe }}
+                                  </p>
+                            </div>
+                          </div>
+                          {% endfor %}
+                    </div>
+                    <div class="col-md-3 list container-fluid mt-3">
+                        
+                          <h4 class="text font-italic">
+                              Most Recent
+                          </h4>
+                          <div class="row list-group-item bg-dark shadow-lg">
+                          {% for rmoviepost in rmovieposts %}
+                          <ul>
+                              <li>
+                                <a class="Top3posts text-white text-capitalize font-weight-light" href="{% url 'movie:details' rmoviepost.slug %}">
+                                    {{ rmoviepost.title }}
+                                </a>
+                              </li>
+                          </ul>
+                          {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="row my-5">
+       <div class="col-md-8">
+        
+        {% for moviepost in movieposts %}
+        <div class="col-md-10 container-fluid justify-content-center">
+            <div class="card text-center bg-dark my-2 shadow-lg">
+                <div class="card-header">
+                    <a class="" href="{% url 'movie:details' moviepost.slug %}">
+                   <h5 class="cardTitle text-capitalize font-weight-bold">
+                    {{ moviepost.title }}
+                   </h5> 
+                    </a>
+                </div>
+                <div class="card-body">
+                  <img class="card-img-top" src="{{ moviepost.image.url }}" alt="Card image cap" width="100px" height="300px">
+                  <p class="card-text">{{ moviepost.content|truncatechars:400|safe }}</p>
+                  <a href="{% url 'movie:details' moviepost.slug %}" class="btn btn-secondary"> Read more.. </a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{ moviepost.created_on }}
+                </div>
+              </div>
+    
+        </div>
+        {% endfor %}
+        
+        <div class="Paginator my-3">
+            {% if movieposts.paginator.num_pages > 1 %}
+            <nav aria-label="...">
+                <ul class="pagination justify-content-center pb-2">
+                    {% if mvieposts.has_previous %}
+                  <li class="page-item disabled">
+                    
+                    <a href="?page={{ movieposts.previous_page_number }}">
+                        <span class="page-link text-white bg-primary">Previous <i class="fas fa-chevron-circle-left"></i></span>
+                    </a>
+                  </li>
+                  {% endif %}
+                  <li class="page-item"><a class="page-link bg-dark text-white" href="#">{{ movieposts.number }}</a></li>
+                  <li class="page-item">
+                    <span class="page-link bg-dark text-white">
+                      of
+                      <!-- <span class="sr-only">(current)</span> -->
+                    </span>
+                  </li>
+                  <li class="page-item"><a class="page-link bg-dark text-white" href="#">{{ movieposts.paginator.num_pages }}</a></li>
+                  {% if movieposts.has_next %}
+                  <li class="page-item">
+                    <a class="page-link bg-primary text-white" href="?page={{ movieposts.next_page_number }}"><i class="fas fa-chevron-circle-right"></i>Next</a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </nav>
+              {% endif %}
+        </div>
+
+       </div>
+           
+       
+        <div class="col-md-4">
+            <div class="col-md-12 container-fluid">
+                <h2 class=" subtitle text-center">
+                    <a class="text-dark text-monospace font-weight-bold shadow-sm text-uppercase" href="{% url 'index' %}">dev</a>
+                </h2>
+                {% for post in posts %} 
+                <div class="card bg-dark my-2 shadow-lg">
+                    <div class="card-horizontal">
+                        <div class="img-square-wrapper">
+                            <img class="rounded-circle" src="{{ post.image.url }} " alt="Card image cap" width="80px" height="80px">
+                        </div>
+                        <div class="card-body">
+                            <a class="" href="{% url 'details' post.slug %}">
+                                <h6 class="card-title text-capitalize">{{ post.title }}</h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">  {{ post.created_on }}</small>
+                    </div>
+                </div>
+            
+                {% endfor %}
+                <div class="mt-4">
+                    <h2 class=" subtitle text-center">
+                        <a class=" text-dark text-monospace font-weight-bold shadow-sm text-uppercase" href="{% url 'tech:tech' %}" >Tech</a>
+                    </h2>
+        
+                    {% for techpost in techposts %}
+                    <div class="card bg-dark my-2 shadow-lg">
+                        <div class="card-horizontal">
+                            <div class="img-square-wrapper">
+                                <img class="rounded-circle" src="{{ techpost.image.url }} " alt="Card image cap" width="80px" height="80px">
+                            </div>
+                            <div class="card-body">
+                                <a class="" href="{% url 'tech:details' techpost.slug %}">
+                                    <h6 class="card-title text-capitalize">  {{ techpost.title }} </h6>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">  {{ techpost.created_on }}</small>
+                        </div>
+                    </div>
+                
+        
+                    {% endfor %}
+                </div>
+
+                <div class="Contact my-5">
+                    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+        Contact me <span class="badge badge-light"><i class="fab fa-angellist"></i></span>
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title text-secondary" id="exampleModalLongTitle">Socials</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body list-group-item-dark">
+                <button type="button" class="btn btn-primary">
+                    <a href="
+                    https://mail.google.com/mail/?view=cm&fs=1&to=goekezie@gmail.com&su=Greetings&body=" target="_blank" class="gmail text-white">
+                    <i class="fas fa-envelope"></i><span class="badge badge-light"></span>
+                </a>
+                    
+                  </button>
+    
+                  <button type="button" class="btn btn-primary">
+                    <a href="
+                    https://wa.me/07059905888" target="_blank" class="whatsapp text-white">
+                    <i class="fab fa-whatsapp"></i><span class="badge badge-light"></span>
+                </a>
+                    
+                  </button>
+    
+                  <button type="button" class="btn btn-primary">
+                    <a href="https://twitter.com/messages/compose?recipient_id=732594102" target="_blank"
+                    class="twitter-dm-button text-white" data-screen-name="@goekezie">
+                   message@goekezie
+                   <i class="fab fa-twitter"></i><span class="badge badge-light"></span>
+                </a>
+    
+                  </button>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+            </div>            
+        </div>
+       
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+

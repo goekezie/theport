@@ -1,0 +1,68 @@
+{% extends 'dev/base.html' %}
+
+
+{% block content %}
+  <div class="row mx-0 my-1 justify-content-center text-center text-dark ">
+   <h4 class="search text-white font-italic font-weight-light"> 
+    {{ quote }}
+   </h4>
+  </div>
+  
+
+  {% for result in results %}
+  <div class="row justify-content-center container-fluid ">
+    <div class="col-md-6 align-items-center my-3 ">
+      <div class="card text-center bg-dark  shadow-lg ">
+        <div class="card-header">
+           <h5>
+          {{ result.title }}
+          </h5> 
+          </a>
+        </div>
+        <div class="card-body">
+         
+         <img class="card-img-top" src="{{ result.image.url }}" alt="Card image cap" width="100px" height="300px">
+        <p class="card-text">{{ result.content|truncatechars:0 }}</p>
+        <a href="{{ result.get_absolute_url }}" class="btn btn-primary">Read more..</a>
+        </div>
+        <div class="card-footer text-muted">
+          {{ result.created_on }}
+        </div>
+      </div> 
+    </div>
+  </div>
+
+
+
+  {% endfor %}
+  {% if results.paginator.num_pages > 1 %}
+  <nav aria-label="...">
+    <ul class="pagination justify-content-center pb-2">
+        {% if results.has_previous %}
+      <li class="page-item disabled">
+        
+        <a href="?page={{ results.previous_page_number }}{% if query %}&q={{query}}{% endif%}">
+            <span class="page-link">Previous</span>
+        </a>
+      </li>
+      {% endif %}
+      <li class="page-item"><a class="page-link" href="#">{{ results.number }}</a></li>
+      <li class="page-item active">
+        <span class="page-link">
+          of
+          <!-- <span class="sr-only">(current)</span> -->
+        </span>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">{{ results.paginator.num_pages }}</a></li>
+      {% if results.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ results.next_page_number }}{% if query %}&q={{query}}{% endif%}">Next</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+
+
+{% endblock %}
+

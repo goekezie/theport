@@ -1,0 +1,17 @@
+{% extends 'dev/base.html' %}
+{% block content %}
+<section>
+    <div class="col text-center text-white">
+
+        <h2>
+            {{ result.title }}
+        </h2>
+        <h2>
+            -----{{ result.created_on|date:'F jS Y' }}----
+        </h2>
+        <h2>
+            {{ result.content|safe }}
+        </h2>
+    </div>
+</section>
+{% endblock %}

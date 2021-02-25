@@ -24,6 +24,28 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
 
+    path('certifications/', views.certifications, name="certifications"),
+    path('about/', views.about, name="about"),
+    path('search/', views.search, name="search"),
+    
+    
+    
+    #path('', include(('post.urls', 'post'), namespace='post')),
+
+
+
+    #movies
+    path('movie/', include('movie.urls')),
+
+    #techhardware
+    path('tech/', include('tech.urls')),
+
+    #django-summernote
+    path('summernote/', include('django_summernote.urls')),
+
+    path('<slug:slug>/', views.details, name="details"),
+
+    path('<slug:slug>/', views.resultdetail, name="resultdetail"),
 
     #django-summernote
     path('summernote/', include('django_summernote.urls')),
