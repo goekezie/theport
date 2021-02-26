@@ -113,25 +113,28 @@
            
        
         <div class="col-md-4">
-            <div class="col-md-12 container-fluid">
+            <div class="col-md-auto container-fluid">
                 <h2 class=" subtitle text-center">
                     <a class="text-dark text-monospace font-weight-bold shadow-sm text-uppercase" href="{% url 'der:der' %}">dev</a>
                 </h2>
                 {% for post in posts %} 
                 <div class="card bg-dark my-2 shadow-lg">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="rounded-circle" src="{{ post.image.url }} " alt="Card image cap" width="80px" height="80px">
+                    <div class="col justify-content-center">
+                        <div class="row card-horizontal text-wrap">
+                            <div class="img-square-wrapper">
+                                <img class="rounded-circle" src="{{ post.image.url }} " alt="Card image cap" width="80px" height="80px">
+                            </div>
+                            <div class=" card-body text-truncate">
+                                <a class="" href="{% url 'der:details' post.slug %}">
+                                    <h6 class="card-title text-capitalize">{{ post.title }}</h6>
+                                </a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <a class="" href="{% url 'der:details' post.slug %}">
-                                <h6 class="card-title text-capitalize">{{ post.title }}</h6>
-                            </a>
+                        <div class="card-footer">
+                            <small class="text-muted">  {{ post.created_on }}</small>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">  {{ post.created_on }}</small>
-                    </div>
+
                 </div>
             
                 {% endfor %}
@@ -142,19 +145,22 @@
         
                     {% for techpost in techposts %}
                     <div class="card bg-dark my-2 shadow-lg">
-                        <div class="card-horizontal">
-                            <div class="img-square-wrapper">
-                                <img class="rounded-circle" src="{{ techpost.image.url }} " alt="Card image cap" width="80px" height="80px">
+                        <div class="col justify-content-center">
+                            <div class="row card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img class="rounded-circle" src="{{ techpost.image.url }} " alt="Card image cap" width="80px" height="80px">
+                                </div>
+                                <div class="card-body text-wrap">
+                                    <a class="" href="{% url 'tec:details' techpost.slug %}">
+                                        <h6 class="card-title text-capitalize">  {{ techpost.title }} </h6>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <a class="" href="{% url 'tec:details' techpost.slug %}">
-                                    <h6 class="card-title text-capitalize">  {{ techpost.title }} </h6>
-                                </a>
+                            <div class="card-footer">
+                                <small class="text-muted">  {{ techpost.created_on }}</small>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">  {{ techpost.created_on }}</small>
-                        </div>
+
                     </div>
                 
         

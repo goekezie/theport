@@ -20,7 +20,7 @@ class MoviePost(models.Model):
     def __str__(self):
         return self.title
     def get_absolute_url(self):
-        return reverse('movie:details', args={self.slug})
+        return reverse('mov:details', args={self.slug})
 
 class Comment(models.Model):
     moviepost = models.ForeignKey(MoviePost, on_delete=models.CASCADE, related_name='comments')

@@ -20,7 +20,7 @@ class TechPost(models.Model):
     def __str__(self):
         return self.title
     def get_absolute_url(self):
-        return reverse('tech:details', args={self.slug})
+        return reverse('tec:details', args={self.slug})
 
 class Comment(models.Model):
     techpost = models.ForeignKey(TechPost, on_delete=models.CASCADE, related_name='comments')

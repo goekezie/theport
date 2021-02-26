@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'django_static_fontawesome',
     'crispy_forms',
+    'django_social_share',
    
 ]
 
