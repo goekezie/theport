@@ -48,9 +48,9 @@ def search(request):
                     techpostresults
                      ))
         if result_list != []:
-            quote =  'Search result for ' + query
+            quote =  'Search result for : ' + query
         else: 
-            quote = 'No result found for ' + query
+            quote = 'No result found for : ' + query
          
 
     else:
