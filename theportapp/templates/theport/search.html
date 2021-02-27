@@ -22,7 +22,7 @@
         <div class="card-body">
          
          <img class="card-img-top" src="{{ result.image.url }}" alt="Card image cap" width="100px" height="300px">
-        <p class="card-text">{{ result.content|truncatechars:0 }}</p>
+        <p class="card-text">{{ result.content|truncatechars:100 }}</p>
         <a href="{{ result.get_absolute_url }}" class="btn btn-primary">Read more..</a>
         </div>
         <div class="card-footer text-muted">
