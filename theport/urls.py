@@ -31,7 +31,7 @@ urlpatterns = [
   
 
     #dev
-    path('blog/', include('der.urls')),
+    path('dev/', include('der.urls')),
     #movies
     path('movie/', include('mov.urls')),
 
