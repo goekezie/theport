@@ -3,14 +3,14 @@
 
 {% block content %}
   <div class="row mx-0 my-1 justify-content-center text-center text-dark ">
-   <h4 class="search text-white font-italic font-weight-light"> 
+   <h4 class="search text-dark font-italic font-weight-light"> 
     {{ quote }}
    </h4>
   </div>
   
 
   {% for result in results %}
-  <div class="row justify-content-center container-fluid ">
+  <div class="row justify-content-center text-white container-fluid my-5">
     <div class="col-md-6 align-items-center my-3 ">
       <div class="card text-center bg-dark  shadow-lg ">
         <div class="card-header">
@@ -22,7 +22,7 @@
         <div class="card-body">
          
          <img class="card-img-top" src="{{ result.image.url }}" alt="Card image cap" width="100px" height="300px">
-        <p class="card-text">{{ result.content|truncatechars:100 }}</p>
+        <p class="card-text">{{ result.content|truncatechars:100|safe }}</p>
         <a href="{{ result.get_absolute_url }}" class="btn btn-primary">Read more..</a>
         </div>
         <div class="card-footer text-muted">

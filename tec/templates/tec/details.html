@@ -4,13 +4,13 @@
   <div class="row justify-content-center">
     <div class="col text-center  text-white">
 
-      <h1 class="Heading font-weight-bold text-capitalize">
+      <h1 class="Heading font-weight-bold text-dark text-capitalize">
           {{ techpost.title }}
       </h1>
-      <h5 class="date text-dark font-weight-lighter">
+      <h5 class="date text-muted font-weight-lighter">
           {{ techpost.created_on|date:'F jS Y' }}
       </h5>
-      <h5  class="detail text-wrap text-justify">
+      <h5  class="detail text-wrap text-justify text-dark">
           {{ techpost.content|safe }}
       </h5>
   </div>
@@ -90,7 +90,7 @@ Share <i class="fas fa-share-alt"></i>
     
     <hr>
     <div class="comments container-fluid ">
-      <div class="row bg-secondary  my-2">
+      <div class="row bg-white  my-2">
         <button type="button" class="btn btn-primary text-dark">
           Comments <span class="badge badge-light">{{ totalcomments.count }}</span>
         </button>
@@ -101,7 +101,7 @@ Share <i class="fas fa-share-alt"></i>
   <div class="col-md-8 container-fluid  ">
     {% for comment in comments %}
 
-    <div class="comment">
+    <div class="comment text-white">
       <div class="row">
         <div class="card bg-dark my-2 shadow-lg">
           <div class="row card-horizontal">

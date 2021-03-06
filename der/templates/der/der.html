@@ -2,7 +2,7 @@
 {% extends 'theport/base.html' %}
 {% block content %}
 <div class="content">
-    <div class="shadow-lg ">
+    <div class="shadow-sm ">
         <header id="header" class="bg-dark ">
             <div class="">
                 <div class="row height align-items-center" style=" height: 30rem;">
@@ -56,7 +56,7 @@
 
         
         {% for post in posts %}
-        <div class="col-md-10 container-fluid justify-content-center">
+        <div class="col-md-10 container-fluid justify-content-center text-white">
             <div class="card text-center bg-dark my-2 shadow-lg" >
                 <div class="card-header">
                     <a class="" href="{% url 'der:details' post.slug %}" >
@@ -68,7 +68,7 @@
                 <div class="card-body">
                   
                   <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap" width="100px" height="300px">
-                  <p class="card-text ">{{ post.content|truncatechars:400|safe }}</p>
+                  <p class="card-text ">{{ post.content|truncatechars:300|safe }}</p>
                   <a href="{% url 'der:details' post.slug %}" class="btn btn-secondary">Read more..</a>
                 </div>
                 <div class="card-footer text-muted">
@@ -184,29 +184,28 @@
                         </button>
                         </div>
                         <div class="modal-body list-group-item-dark">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary my-1">
                                 <a href="
-                                https://mail.google.com/mail/?view=cm&fs=1&to=goekezie@gmail.com&su=Greetings&body=" target="_blank" class="gmail text-white">
+                                https://mail.google.com/mail/?view=cm&fs=1&to=goekezie@gmail.com&su=Greetings&body=" target="_blank" class="gmail text-white">goekezie@gmail.com
                                 <i class="fas fa-envelope"></i><span class="badge badge-light"></span>
                             </a>
                                 
                               </button>
-
-                              <button type="button" class="btn btn-primary">
+                    
+                              <button type="button" class="btn btn-primary my-1">
                                 <a href="
-                                https://wa.me/07059905888" target="_blank" class="whatsapp text-white">
+                                https://wa.me/+2347059905888" target="_blank" class="whatsapp text-white">
                                 <i class="fab fa-whatsapp"></i><span class="badge badge-light"></span>
                             </a>
                                 
                               </button>
-
-                              <button type="button" class="btn btn-primary">
+                    
+                              <button type="button" class="btn btn-primary my-1">
                                 <a href="https://twitter.com/messages/compose?recipient_id=732594102" target="_blank"
                                 class="twitter-dm-button text-white" data-screen-name="@goekezie">
-                               message@goekezie
                                <i class="fab fa-twitter"></i><span class="badge badge-light"></span>
                             </a>
-
+                    
                               </button>
                         </div>
                         <div class="modal-footer">

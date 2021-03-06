@@ -2,24 +2,39 @@
 {% block content %}
 {% load static %}
 <div class="content ">
-  <div class="imgbg  col-md-auto my-2">
-    <div class="about ">
-      <div class=" container-fluid justify-content-center my-5 ">
-        <div class="row  justify-content-center">
-          <div class="card bg-dark shadow-lg " style="width: 25rem; height: 30rem;" >
-            <div class="Profile-pic mx-auto image-wrapper justify-content-center">
-              <img src="{% static 'theport/me22.jpg' %}" class="card-img-top  rounded-circle my-3 shadow-lg" alt="Profile Picture" style="width: 14rem; height: 14rem;">
+
+  <div class="shadow-sm ">
+    <header id="header" class="bg-dark ">
+        <div class="">
+            <div class="row height align-items-center justify-content-center" style=" height: 30rem;">
+
+              <div class="imgbg  col-md-auto my-1">
+                <div class="about ">
+                  <div class=" container-fluid justify-content-center my-5 shadow-lg text-white">
+                    <div class="row  justify-content-center">
+                      <div class="card bg-dark shadow-sm " style="width: 25rem; height: 30rem;" >
+                        <div class="Profile-pic mx-auto image-wrapper justify-content-center">
+                          <img src="{% static 'theport/me22.jpg' %}" class="card-img-top  rounded-circle my-3 shadow-lg" alt="Profile Picture" style="width: 14rem; height: 14rem;">
+                        </div>
+                        <div class="card-body bg-dark text-justify text-center text-wrap ">
+                          <p class="card-text ">Heyyy.... my name is <strong>Ekezie Onyekachukwu Gibson</strong>. I'm a highly skilled devOps engineer/solutions architect from Nigeria. I'm familiar with tools like Terraform, docker, k8s & cloudFormation. I'm also very good with python/django.</p>
+
+                        </div>
+                      </div>
+              
+                    </div>
+              
+                </div>
+                </div>
+              </div>
+
             </div>
-            <div class="card-body bg-dark ">
-              <p class="card-text">Heyyy, my name is Ekezie Gibson. I'm a devOps engineer and solutions architect from Nigeria. I can work on azure and aws platform, also familiar with tools like: Terraform, k8s, cloudFormation and ARM templates</p>
-            </div>
-          </div>
-  
         </div>
-  
-    </div>
-    </div>
-  </div>
+    </header>
+</div>
+
+
+
   
 
   <div class="row my-5">
@@ -53,7 +68,7 @@
               
               <div class="projects justify-content-center ">
                 {% for project in projects %}
-                <div class="projects col-md-10 container-fluid justify-content-center">
+                <div class="projects col-md-10 container-fluid justify-content-center text-white">
                   <div class="card my-3 bg-dark " >
                     <div class="row no-gutters justify-content-center">
                       <div class="">
@@ -138,20 +153,20 @@
       <div class="col-md-5 col-lg-5">
             <div class="justify-content-center container-fluid  ">
               {% load crispy_forms_tags %}
-                <div class="card-body col-md-10 mb-5">
+                <div class="card-body col-md-10 mb-5 shadow-sm">
                     <div class="col align-content-center">
                         <h3>Send a message</h3>
                         <h6 class="text-success">
                           {{ response }}
                           <!-- Your email address will not be published.
                         </h6> -->
-                        <h6 class="text-white">
+                        <h6 class="text-dark">
                          Required fields are marked *
                         </h6>
                         <form method="post" style="margin-top: 1.3em;" class=" text-capitalize">
                           {{ message_form | crispy }}
                           {% csrf_token %}                                                
-                          <button type="submit" class="btn btn-primary btn-block btn-lg">Message</button>
+                          <button type="submit" class="btn btn-primary btn-block btn-lg">Send</button>
                         </form>
                     </div>
                 
@@ -173,27 +188,26 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <div class="modal-body list-group-item-dark">
-                <button type="button" class="btn btn-primary">
+            <div class="modal-body list-group-item-dark ">
+                <button type="button" class="btn btn-primary my-1">
                     <a href="
-                    https://mail.google.com/mail/?view=cm&fs=1&to=goekezie@gmail.com&su=Greetings&body=" target="_blank" class="gmail text-white">
+                    https://mail.google.com/mail/?view=cm&fs=1&to=goekezie@gmail.com&su=Greetings&body=" target="_blank" class="gmail text-white">goekezie@gmail.com
                     <i class="fas fa-envelope"></i><span class="badge badge-light"></span>
                 </a>
                     
                   </button>
         
-                  <button type="button" class="btn btn-primary">
+                  <button type="button" class="btn btn-primary my-1">
                     <a href="
-                    https://wa.me/07059905888" target="_blank" class="whatsapp text-white">
+                    https://wa.me/+2347059905888" target="_blank" class="whatsapp text-white">
                     <i class="fab fa-whatsapp"></i><span class="badge badge-light"></span>
                 </a>
                     
                   </button>
         
-                  <button type="button" class="btn btn-primary">
+                  <button type="button" class="btn btn-primary my-1">
                     <a href="https://twitter.com/messages/compose?recipient_id=732594102" target="_blank"
                     class="twitter-dm-button text-white" data-screen-name="@goekezie">
-                   message@goekezie
                    <i class="fab fa-twitter"></i><span class="badge badge-light"></span>
                 </a>
         

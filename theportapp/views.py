@@ -9,7 +9,7 @@ from itertools import chain
 from mov.models import MoviePost
 from tec.models import TechPost
 from der.models import Post
-
+from django.contrib import messages
 
 
 # Create your views here.
@@ -22,6 +22,7 @@ def index(request):
         message_form = MessageForm(request.POST)
         if message_form.is_valid():      
             message_form.save()
+            messages.success(request, 'Message sent.')
             return HttpResponseRedirect('/')
     else:
         message_form = MessageForm()    

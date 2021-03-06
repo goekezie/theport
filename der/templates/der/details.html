@@ -4,13 +4,13 @@
     <div class="row justify-content-center">
         <div class="col text-center text-white">
 
-            <h1 class="Heading font-weight-bold text-capitalize">
+            <h1 class="Heading text-dark font-weight-bold text-capitalize">
             {{ post.title }}
             </h1>
-            <h5 class="date text-dark font-weight-lighter">
+            <h5 class="date text-muted font-weight-lighter">
             {{ post.created_on|date:'F jS Y' }}
             </h5>
-            <h5 class="detail text-wrap text-justify">
+            <h5 class="detail text-dark text-wrap text-justify">
             {{ post.content|safe }}
             </h5>
         </div>
@@ -91,7 +91,7 @@
 
 <hr>
 <div class="comments container-fluid ">
-  <div class="row bg-secondary  my-2">
+  <div class="row bg-white  my-2">
 
     <button type="button" class="btn btn-primary text-dark">
       Comments <span class="badge badge-light">{{ totalcomments.count }}</span>
@@ -101,7 +101,7 @@
 </div>    
 
 <div class="comments justify-content-center text-justify ">
-  <div class="col-md-8 container-fluid  ">
+  <div class="col-md-8 container-fluid text-white ">
     {% for comment in comments %}
 
     <div class="comment">
@@ -147,7 +147,7 @@
           Reply
         </button>
       </p>
-      <div class="collapse" id="collapseExample">
+      <div class="collapse " id="collapseExample">
         <div class="card card-body col-md-7 text-white bg-dark">
           <h6 class="text-danger">
             Your email address will not be published. Required fields are marked *
@@ -168,7 +168,7 @@
 {% endfor %}
 {% load crispy_forms_tags %}
 <div class="card-body col-md-auto mb-5">
-    <div class="col align-content-center">
+    <div class="col align-content-center text-dark">
         <h3>Leave a comment</h3>
         <h6 class="text-danger">
           Your email address will not be published. Required fields are marked *

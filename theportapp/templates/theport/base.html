@@ -15,10 +15,11 @@
         <!-- Local csss for cards with circular images -->
     <link rel="stylesheet" type="text/css" href="{% static 'polls/main.css' %}">
 
-    <link rel="icon" type="image/png"  href="{% static 'dev/RU.png' %}">
-    <title>Gibson | DevOps Engineer</title>
+    <link rel="icon" type="image/png"  href="{% static 'theport/RU.png' %}">
+    <title>Ekezie .O.G | DevOps Engineer</title>
   </head>
-  <body class="bg-secondary" >
+  <body class="bg-white" >
+    {% include 'theport/includes/messages.html' %}
     <header class="header position-sticky">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand text-white" href="{% url 'index' %}"></a>
@@ -53,7 +54,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others
                 </a>
               <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'certifications' %}">I.T Certifications</a> 
+                  <a class="dropdown-item" href="{% url 'certifications' %}">I.T courses & Certifications</a> 
               </div>
           </li>
           </ul>
@@ -66,7 +67,7 @@
       </nav>
     </header>
     <main role="main ">
-      <div class="text-light container-fluid justify-content-center text-justify ">
+      <div class="text-dark container-fluid justify-content-center text-justify ">
         {% block content %}
         {% endblock %}
       </div>
@@ -76,18 +77,24 @@
   <footer class="container-fluid page-footer font-small bg-dark  fixed-bottom mt-3 ">
     <!-- Copyright -->
     <div class="footer-copyright text-center justify-content-center py-3 row text-white">
+      <div class=" mx-2">
+        <a href="https://twitter.com/goekezie" target="_blank">
+         <i class="fab fa-twitter"></i>
+        </a>
+       
+      </div>
+      <div class=" mx-2">
+        <a href="https://github.com/goekezie" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+       
+      </div>
       <div class="linked in mx-2">
         <a href="https://www.linkedin.com/in/goekezie/" target="_blank">
           <i class="fab fa-linkedin-in"></i>
         </a>
         
       </div>
-     <div class=" mx-2">
-       <a href="https://twitter.com/goekezie">
-        <i class="fab fa-twitter"></i>
-       </a>
-      
-     </div>
      <h6 class="mx-2 font-weight-light text-center font-italic">
       © 2021 Copyright: ekezie.dev 
     </h6> 
