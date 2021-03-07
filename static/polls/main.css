@@ -1,0 +1,37 @@
+
+.height {
+    min-height: 20vh;
+}
+
+/* h1, h2, h3, h4, h5, h6, p, a {
+  font-family: DM Mono;
+} */
+
+/* body {
+  width: fit-content;
+  block-size: fit-content
+} */
+
+html {
+  font-size: 1rem;
+  font-family: Roboto;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
