@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'x&*z$ogjp2g$03w@1x6baszd(k-t@lsxx#jv#nw^*%=mj@*i5-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'django_static_fontawesome',
     'crispy_forms',
     'django_social_share',
-   
+
 ]
 
 MIDDLEWARE = [
