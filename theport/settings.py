@@ -33,8 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'x&*z$ogjp2g$03w@1x6baszd(k-t@lsxx#jv#nw^*%=mj@*i5-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 # MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
@@ -143,3 +142,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("no local file. You must be on production")
