@@ -2,7 +2,7 @@
 <html lang="en">
   {% load static %}
   <head>
-    
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,11 +24,11 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand text-white" href="{% url 'index' %}"></a>
         <img class="navbar-brand"  rel="icon" type="image/png"  src="{% static 'theport/RU.png' %}" width="70px" height="50px">
-        
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        {% load custom_tags %} 
+        {% load custom_tags %}
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -47,20 +47,24 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="{% url 'tec:tec' %}" >
               <!-- <link rel="icon" type="image/png"  href="{% static 'devend/twitter.png' %}"> -->
-              Tech 
+              Tech
               </a>
             </li>
             <li class="nav-item dropdown bg-dark">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others
                 </a>
               <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
+                  <a class="dropdown-item text-secondary" href="{% url 'certifications' %}">I.T courses</a>
+=======
                   <a class="dropdown-item" href="{% url 'certifications' %}">I.T courses</a> 
+>>>>>>> 067ff267477120a8e270c85c973a06b83a6a09d1
               </div>
           </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}" >
             <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" value="{{ query }}" required>
-          
+
             <button class="btn shadow-lg text-white my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -81,26 +85,26 @@
         <a href="https://twitter.com/goekezie" target="_blank">
          <i class="fab fa-twitter"></i>
         </a>
-       
+
       </div>
       <div class=" mx-2">
         <a href="https://github.com/goekezie" target="_blank">
           <i class="fab fa-github"></i>
         </a>
-       
+
       </div>
       <div class="linked in mx-2">
         <a href="https://www.linkedin.com/in/goekezie/" target="_blank">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        
+
       </div>
      <h6 class="mx-2 font-weight-light text-center font-italic">
-      © 2021 Copyright: ekezie.dev 
-    </h6> 
+      © 2021 Copyright: ekezie.dev
+    </h6>
     </div>
     <!-- Copyright -->
-  
+
   </footer>
 
 
